@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
@@ -44,6 +45,7 @@ public class EditPersonTest {
     }
 
     @Test
+    @Transactional
     public void givenPersonInRepository_whenUpdate_thenPersonUpdated() throws Exception {
         var person = repository.save(new Person("test", "test", Gender.MALE, LocalDate.now()));
         person.setFirstName("completely new name");
