@@ -1,5 +1,7 @@
-package editor.people.error;
+package editor.people.controller;
 
+import editor.people.error.Error;
+import editor.people.error.PersonNotFoundException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
