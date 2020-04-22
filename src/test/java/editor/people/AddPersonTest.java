@@ -50,10 +50,10 @@ public class AddPersonTest {
 
     @Test
     public void givenInvalidPerson_whenAdd_thenReturnError() throws Exception {
-        var person = new Person(null, null, null, LocalDate.of(2100, 01, 01));
+        var person = "\"firstName\": \"\", \"lastName\": \"\", \"gender\": \"\", \"birthday\": \"2100-01-01\"";
 
         mvc.perform(post("/people")
-                .content(objectMapper.writeValueAsString(person))
+                .content(person)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
